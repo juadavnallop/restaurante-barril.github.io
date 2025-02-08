@@ -1,0 +1,47 @@
+/* Estilo del título principal */
+.titulo-restaurante {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Estilo de las tarjetas */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #ff6f61;
+    border-color: #ff6f61;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #e05d50;
+    border-color: #e05d50;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    color: #666;
+}
