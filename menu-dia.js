@@ -1,25 +1,26 @@
 document.getElementById('menu-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe
 
-    // Capturar las selecciones del cliente
-    const arroz = document.getElementById('arroz').value;
-    const proteina = document.getElementById('proteina').value;
-    const ensalada = document.getElementById('ensalada').value;
-    const bebida = document.getElementById('bebida').value;
+    // Obtener los valores seleccionados
+    const plato = document.getElementById('plato');
+    const platoText = plato.options[plato.selectedIndex].text;
+
+    const acompanante = document.getElementById('acompanante');
+    const acompananteText = acompanante.options[acompanante.selectedIndex].text;
+
+    const bebida = document.getElementById('bebida');
+    const bebidaText = bebida.options[bebida.selectedIndex].text;
 
     // Crear el mensaje de WhatsApp
-    const mensaje = `Hola, quiero hacer un pedido del Menú del Día:\n\n` +
-                    `- Arroz: ${arroz}\n` +
-                    `- Proteína: ${proteina}\n` +
-                    `- Ensalada: ${ensalada}\n` +
-                    `- Bebida: ${bebida}`;
+    const mensaje = `¡Hola! Quiero hacer un pedido del Menú del Día:\n\n` +
+                    `- Plato: ${platoText}\n` +
+                    `- Acompañante: ${acompananteText}\n` +
+                    `- Bebida: ${bebidaText}`;
 
     // Número de WhatsApp
     const numeroWhatsApp = '+573134577990';
 
-    // Codificar el mensaje para la URL
+    // Crear y abrir el enlace de WhatsApp
     const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-    // Redirigir al cliente a WhatsApp
     window.open(urlWhatsApp, '_blank');
 });

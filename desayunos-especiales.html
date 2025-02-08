@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desayunos Especiales - Restaurante Barril</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="text-center py-5">
+        <h1 class="titulo-restaurante">Desayunos Especiales</h1>
+        <h2>Precio: $15.000</h2>
+    </header>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id="desayunos-form">
+                    <div class="mb-3">
+                        <label class="form-label">Selecciona tu omelette:</label>
+                        <select class="form-select" id="omelette" required>
+                            <option value="" disabled selected>Elige una opción</option>
+                            <option value="omelette-1">Omelette 1 (tortilla de harina, huevos, jamón y queso)</option>
+                            <option value="omelette-2">Omelette 2 (tortilla de harina, huevos, tomate rostizado y espinaca)</option>
+                            <option value="omelette-3">Omelette 3 (tortilla de harina, huevos, tocineta y maicitos)</option>
+                            <option value="omelette-4">Omelette 4 (tortilla de harina, huevos, pechuga desmechada y salchicha)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Acompañantes (selecciona hasta 2):</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="waffles" id="waffles">
+                            <label class="form-check-label" for="waffles">Waffles con miel</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="tostadas" id="tostadas">
+                            <label class="form-check-label" for="tostadas">Tostadas con aguacate</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="fruta" id="fruta">
+                            <label class="form-check-label" for="fruta">Fruta</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="jugo" id="jugo">
+                            <label class="form-check-label" for="jugo">Jugo de naranja o limón</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="yogurt" id="yogurt">
+                            <label class="form-check-label" for="yogurt">Yogurt</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="queso" id="queso">
+                            <label class="form-check-label" for="queso">Queso</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Hacer pedido</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-3 bg-light">
+        <p>&copy; 2023 Restaurante Barril. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="desayunos-especiales.js"></script>
+</body>
+</html>
