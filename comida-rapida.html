@@ -6,7 +6,53 @@
     <title>Comida Rápida - Restaurante Barril</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f8f4e3;
+            font-family: 'Playfair Display', serif;
+        }
+        .titulo-restaurante {
+            color: #6f4c3e;
+        }
+        .menu-section {
+            background-color: #6f4c3e;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #8b5a2b;
+            border: none;
+            border-radius: 10px;
+        }
+        .card img {
+            border-radius: 10px 10px 0 0;
+        }
+        .card-title {
+            color: #f8f4e3;
+        }
+        .card-text {
+            color: #f8f4e3;
+        }
+        .precio {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        footer {
+            background-color: #6f4c3e;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-select {
+                width: 100%;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="text-center py-5">
@@ -51,9 +97,88 @@
                 </form>
             </div>
         </div>
+
+        <div class="menu-section">
+            <h2 class="text-center">Nuestras Hamburguesas</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <img src="hamburguesa.jpg" class="card-img-top" alt="Hamburguesa El Barril Opita">
+                        <div class="card-body">
+                            <h5 class="card-title">Hamburguesa El Barril Opita</h5>
+                            <p class="card-text">Deliciosa hamburguesa con carne de res, queso doble crema, tocineta, lechuga, tomate, cebolla caramelizada y salsas de la casa</p>
+                            <p class="precio">$20.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="text-center">Salchipapas y Perros Calientes</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <img src="salchipapas.jpg" class="card-img-top" alt="Salchipapas">
+                        <div class="card-body">
+                            <h5 class="card-title">Salchipapas</h5>
+                            <p class="card-text">Papas a la francesa con salchicha, queso rallado y salsas especiales</p>
+                            <p class="precio">$15.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <img src="perro-caliente.jpg" class="card-img-top" alt="Perro Caliente al Barril">
+                        <div class="card-body">
+                            <h5 class="card-title">Perro Caliente al Barril</h5>
+                            <p class="card-text">Hot dog con salchicha americana, queso rallado, papitas en fosforito y salsas de la casa</p>
+                            <p class="precio">$15.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="text-center">Bebidas</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="gaseosas.jpg" class="card-img-top" alt="Gaseosas">
+                        <div class="card-body">
+                            <h5 class="card-title">Gaseosas</h5>
+                            <p class="card-text">Personal: $3.500</p>
+                            <p class="card-text">1.5L: $8.000</p>
+                            <p class="card-text">3L: $12.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="jugos.jpg" class="card-img-top" alt="Jugos Naturales">
+                        <div class="card-body">
+                            <h5 class="card-title">Jugos Naturales</h5>
+                            <p class="card-text">Limonada: $3.500</p>
+                            <p class="card-text">Jugo de Naranja: $3.500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="cervezas.jpg" class="card-img-top" alt="Cervezas">
+                        <div class="card-body">
+                            <h5 class="card-title">Cervezas</h5>
+                            <p class="card-text">Águila Negra: $4.000</p>
+                            <p class="card-text">Águila Light: $4.500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="text-center py-3 bg-light">
+    <footer class="text-center py-3">
         <p>&copy; 2025 Restaurante Barril. Todos los derechos reservados.</p>
     </footer>
 

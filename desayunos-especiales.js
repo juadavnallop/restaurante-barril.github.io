@@ -1,18 +1,18 @@
 document.getElementById('desayunos-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Obtener los valores seleccionados
-    const omelette = document.getElementById('omelette');
-    const omeletteText = omelette.options[omelette.selectedIndex].text;
-    
+    // Obtener el valor seleccionado del desayuno
+    const desayuno = document.getElementById('desayuno');
+    const desayunoText = desayuno.options[desayuno.selectedIndex].text;
+
     // Obtener acompañantes seleccionados
     const acompanantes = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
         .map(checkbox => checkbox.nextElementSibling.textContent)
         .join(', ');
-    
+
     // Crear el mensaje
     const mensaje = `¡Hola! Quiero hacer un pedido:\n\n` +
-                   `Omelette: ${omeletteText}\n` +
+                   `Desayuno: ${desayunoText}\n` +
                    `Acompañantes: ${acompanantes}`;
 
     // Número de WhatsApp

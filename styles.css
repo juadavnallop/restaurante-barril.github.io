@@ -45,3 +45,9 @@ footer {
     font-size: 0.9rem;
     color: #666;
 }
+
+/* Estilo para el contenedor del logo */
+.container-fluid img {
+    max-height: 240px; /* Ajusta la altura máxima del logo */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+}
