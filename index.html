@@ -7,75 +7,99 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f8f4e3; /* Color de fondo claro */
-            font-family: 'Playfair Display', serif;
+            background-color: #f8f4e3; /* Fondo claro */
+            font-family: 'Roboto', sans-serif;
+            color: #333; /* Texto oscuro */
         }
         .titulo-restaurante {
-            color: #6f4c3e; /* Color marrón */
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .card {
-            background-color: #8b5a2b; /* Color marrón más claro */
+            background: linear-gradient(135deg, #c49c78, #6f4c3e); /* Degradado marrón */
             border: none;
-            border-radius: 10px;
-            color: white; /* Texto en blanco */
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-10px);
         }
         .card-title {
-            color: #f8f4e3; /* Color de texto claro */
+            font-size: 1.5rem;
+            color: #f8f4e3; /* Texto blanco */
         }
         .card-text {
-            color: #f8f4e3; /* Color de texto claro */
+            color: #f8f4e3; /* Texto blanco */
         }
         .btn-primary {
-            background-color: #6f4c3e; /* Color marrón */
+            background-color: #6f4c3e; /* Marrón oscuro */
             border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out;
         }
         .btn-primary:hover {
-            background-color: #5a3b2f; /* Color marrón más oscuro al pasar el mouse */
+            background-color: #5a3b2f; /* Marrón más oscuro */
+        }
+        .oculto {
+            display: none;
         }
         footer {
-            background-color: #6f4c3e; /* Color marrón */
+            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
             color: white;
+            padding: 20px 0;
         }
-        .menu-section {
-            background-color: #6f4c3e; /* Color marrón */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+        .social-icons a {
+            color: #f8f4e3; /* Texto blanco para iconos */
+            transition: color 0.3s ease-in-out;
+        }
+        .social-icons a:hover {
+            color: #5a3b2f; /* Cambio de color al pasar el mouse */
+        }
+        .disabled {
+            pointer-events: none;
+            background-color: #ccc !important; /* Gris deshabilitado */
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
-    <!-- Logo horizontal que ocupa todo el ancho -->
-    <div class="container-fluid p-0">
+    <!-- Logo horizontal -->
+    <div class="logo-container">
         <img src="logo1.png" alt="Logo Restaurante Barril" class="img-fluid w-100">
     </div>
-
-    <!-- Título principal con logo -->
-    <header class="text-center py-5">
+    <!-- Título principal debajo del logo -->
+    <header class="text-center py-3">
         <h1 class="titulo-restaurante">Restaurante El Barril Opita</h1>
     </header>
-
     <!-- Contenido principal -->
-    <main class="container">
-        <div class="row">
+    <main class="container py-5">
+        <div class="row g-4">
             <!-- Menú del día -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center shadow">
+            <div class="col-md-4">
+                <div class="card h-100 text-center" id="menu-del-dia">
                     <div class="card-body">
                         <h2 class="card-title">Menú del Día</h2>
                         <p class="card-text">Disfruta de nuestros deliciosos desayunos y almuerzos.</p>
-                        <a href="menu-dia.html" class="btn btn-primary">Ver menú</a>
+                        <a href="menu-dia.html" class="btn btn-primary" id="btn-menu-dia">Ver menú</a>
                     </div>
                 </div>
             </div>
             <!-- Plato tradicional -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center shadow">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
                     <div class="card-body">
                         <h2 class="card-title">Plato Tradicional</h2>
                         <p class="card-text">Saborea los sabores auténticos de nuestra cocina local.</p>
@@ -84,8 +108,8 @@
                 </div>
             </div>
             <!-- Comida Rápida -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center shadow">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
                     <div class="card-body">
                         <h2 class="card-title">Comida Rápida</h2>
                         <p class="card-text">Disfruta de nuestras deliciosas opciones rápidas.</p>
@@ -94,8 +118,8 @@
                 </div>
             </div>
             <!-- Desayunos Tradicionales Especiales -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center shadow">
+            <div class="col-md-4">
+                <div class="card h-100 text-center">
                     <div class="card-body">
                         <h2 class="card-title">Desayunos Tradicionales y Especiales</h2>
                         <p class="card-text">Descubre nuestras opciones de desayunos únicos y deliciosos.</p>
@@ -105,15 +129,53 @@
             </div>
         </div>
     </main>
-
     <!-- Footer -->
-    <footer class="text-center py-3">
-        <p>&copy; 2025 Restaurante Barril. Todos los derechos reservados.</p>
+    <footer>
+        <div class="text-center py-3">
+            <p>&copy; 2025 Restaurante Barril. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
     </footer>
-
     <!-- Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script>
+        // Función para obtener la hora actual en la zona horaria de Colombia
+        function obtenerHoraColombia() {
+            const ahora = new Date();
+            const opciones = { timeZone: 'America/Bogota', hour: 'numeric', hour12: false };
+            const horaColombia = new Intl.DateTimeFormat('es-CO', opciones).format(ahora);
+            return parseInt(horaColombia); // Convertir la hora a un número entero
+        }
+
+        // Función para verificar si está dentro del horario permitido
+        function esHoraPermitida() {
+            const horaActual = obtenerHoraColombia();
+            const HORA_APERTURA = 10;  // 10:00 AM
+            const HORA_CIERRE = 16;    // 4:00 PM
+            return horaActual >= HORA_APERTURA && horaActual < HORA_CIERRE;
+        }
+
+        // Ejecutar la lógica cuando se cargue la página
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuDelDia = document.getElementById("menu-del-dia");
+            const btnMenuDia = document.getElementById("btn-menu-dia");
+
+            if (esHoraPermitida()) {
+                // Si está dentro del horario permitido, mostramos el menú
+                menuDelDia.classList.remove("oculto");
+            } else {
+                // Si no está dentro del horario permitido, ocultamos el menú
+                menuDelDia.classList.add("oculto");
+                btnMenuDia.textContent = "Fuera de horario"; // Cambiar texto del botón
+                btnMenuDia.setAttribute("href", "#"); // Desactivar el enlace
+                btnMenuDia.classList.add("disabled"); // Agregar estilo de deshabilitado
+            }
+        });
+    </script>
 </body>
 </html>

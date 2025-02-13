@@ -3,292 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desayunos Especiales - Restaurante Barril</title>
+    <title>Desayunos Especiales - Restaurante El Barril Opita</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f8f4e3; /* Color de fondo claro */
-            font-family: 'Playfair Display', serif;
+            background-color: #f8f4e3; /* Fondo claro */
+            font-family: 'Roboto', sans-serif;
+            color: #333;
         }
         .titulo-restaurante {
-            color: #6f4c3e; /* Color marrón */
-        }
-        .menu-section {
-            background-color: #6f4c3e; /* Color marrón */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            text-align: center;
             margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .card {
-            background-color: #8b5a2b; /* Color marrón más claro */
+            background: linear-gradient(135deg, #8b5a2b, #6f4c3e); /* Degradado marrón */
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
-        .card img {
-            border-radius: 10px 10px 0 0;
+        .card:hover {
+            transform: translateY(-10px);
         }
         .card-title {
-            color: #f8f4e3; /* Color de texto claro */
+            font-size: 1.5rem;
+            color: #f8f4e3; /* Texto blanco */
         }
         .card-text {
-            color: #f8f4e3; /* Color de texto claro */
+            color: #f8f4e3; /* Texto blanco */
+        }
+        .btn-primary {
+            background-color: #6f4c3e; /* Marrón oscuro */
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #5a3b2f; /* Marrón más oscuro */
         }
         footer {
-            background-color: #6f4c3e; /* Color marrón */
+            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
             color: white;
+            padding: 20px 0;
         }
-        @media (max-width: 768px) {
-            .form-select {
-                width: 100%; /* Full width for select elements */
-            }
-            .container {
-                padding: 10px; /* Add some padding for mobile */
-            }
+        .menu-section {
+            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .item-card {
+            background-color: #f8f4e3; /* Fondo claro */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+        .item-title {
+            font-size: 1.2rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            font-weight: bold;
+        }
+        .item-description {
+            color: #555;
+        }
+        .form-container {
+            background: linear-gradient(135deg, #f8f4e3, #eae0d5); /* Fondo claro con degradado */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            font-weight: bold;
+        }
+        .form-select {
+            background-color: #fff; /* Fondo blanco */
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            color: #333; /* Texto oscuro */
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-select:focus {
+            border-color: #6f4c3e;
+            box-shadow: 0 0 5px rgba(111, 76, 62, 0.5);
+        }
+        .btn-submit {
+            background-color: #6f4c3e;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-submit:hover {
+            background-color: #5a3b2f;
         }
     </style>
 </head>
 <body>
-    <header class="text-center py-5">
+    <!-- Título principal -->
+    <header class="text-center py-3">
         <h1 class="titulo-restaurante">Desayunos Especiales y Tradicionales</h1>
         <h2>Precio: $15.000 (Especiales) / $12.000 (Tradicionales)</h2>
     </header>
 
-    <main class="container">
+    <!-- Contenido principal -->
+    <main class="container py-5">
+        <!-- Formulario de selección -->
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form id="desayunos-form">
-                    <div class="mb-3">
-                        <label class="form-label">Selecciona tu desayuno:</label>
-                        <select class="form-select" id="desayuno" required>
-                            <option value="" disabled selected>Elige una opción</option>
-                            <!-- Omelettes -->
-                            <optgroup label="Omelettes ($15.000)">
-                                <option value="omelette-1">Omelette 1 (tortilla de harina, huevos, jamón y queso)</option>
-                                <option value="omelette-2">Omelette 2 (tortilla de harina, huevos, tomate rostizado y espinaca)</option>
-                                <option value="omelette-3">Omelette 3 (tortilla de harina, huevos, tocineta y maicitos)</option>
-                                <option value="omelette-4">Omelette 4 (tortilla de harina, huevos, pechuga desmechada y salchicha)</option>
-                            </optgroup>
-                            <!-- Desayunos Tradicionales -->
-                            <optgroup label="Desayunos Tradicionales ($12.000)">
-                                <option value="huevos-pericos">Huevos Pericos</option>
-                                <option value="huevos-rancheros">Huevos Rancheros</option>
-                                <option value="huevos-fritos">Huevos Fritos</option>
-                                <option value="huevos-revueltos">Huevos Revueltos</option>
-                            </optgroup>
-                        </select>
-                    </div>
+                <div class="form-container p-4 shadow">
+                    <h2 class="section-title">Haz tu pedido</h2>
+                    <form id="desayunos-form">
+                        <!-- Seleccionar desayuno -->
+                        <div class="mb-3">
+                            <label for="desayuno" class="form-label">Selecciona tu desayuno:</label>
+                            <select class="form-select" id="desayuno" required>
+                                <option value="" disabled selected>Elige una opción</option>
+                                <!-- Omelettes -->
+                                <optgroup label="Omelettes ($15.000)">
+                                    <option value="omelette-1">Omelette 1 (tortilla de harina, huevos, jamón y queso)</option>
+                                    <option value="omelette-2">Omelette 2 (tortilla de harina, huevos, tomate rostizado y espinaca)</option>
+                                    <option value="omelette-3">Omelette 3 (tortilla de harina, huevos, tocineta y maicitos)</option>
+                                    <option value="omelette-4">Omelette 4 (tortilla de harina, huevos, pechuga desmechada y salchicha)</option>
+                                </optgroup>
+                                <!-- Desayunos Tradicionales -->
+                                <optgroup label="Desayunos Tradicionales ($12.000)">
+                                    <option value="huevos-pericos">Huevos Pericos</option>
+                                    <option value="huevos-rancheros">Huevos Rancheros</option>
+                                    <option value="huevos-fritos">Huevos Fritos</option>
+                                    <option value="huevos-revueltos">Huevos Revueltos</option>
+                                </optgroup>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Acompañantes (selecciona hasta 2):</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="waffles" id="waffles">
-                            <label class="form-check-label" for="waffles">Waffles con miel</label>
+                        <!-- Seleccionar acompañantes -->
+                        <div class="mb-3">
+                            <label for="acompanantes" class="form-label">Acompañantes (selecciona hasta 2):</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="waffles" id="waffles">
+                                <label class="form-check-label" for="waffles">Waffles con miel</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="tostadas" id="tostadas">
+                                <label class="form-check-label" for="tostadas">Tostadas con aguacate</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="fruta" id="fruta">
+                                <label class="form-check-label" for="fruta">Fruta</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="jugo" id="jugo">
+                                <label class="form-check-label" for="jugo">Jugo de naranja o limón</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="yogurt" id="yogurt">
+                                <label class="form-check-label" for="yogurt">Yogurt</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="queso" id="queso">
+                                <label class="form-check-label" for="queso">Queso</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="pan" id="pan">
+                                <label class="form-check-label" for="pan">Pan</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="arepa" id="arepa">
+                                <label class="form-check-label" for="arepa">Arepa</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="platano-frito" id="platano-frito">
+                                <label class="form-check-label" for="platano-frito">Plátano frito</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="tostadas" id="tostadas">
-                            <label class="form-check-label" for="tostadas">Tostadas con aguacate</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="fruta" id="fruta">
-                            <label class="form-check-label" for="fruta">Fruta</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="jugo" id="jugo">
-                            <label class="form-check-label" for="jugo">Jugo de naranja o limón</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="yogurt" id="yogurt">
-                            <label class="form-check-label" for="yogurt">Yogurt</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="queso" id="queso">
-                            <label class="form-check-label" for="queso">Queso</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="pan" id="pan">
-                            <label class="form-check-label" for="pan">Pan</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="arepa" id="arepa">
-                            <label class="form-check-label" for="arepa">Arepa</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="platano-frito" id="platano-frito">
-                            <label class="form-check-label" for="platano-frito">Plátano frito</label>
-                        </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Hacer pedido</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Sección de Nuestros Desayunos -->
-        <div class="menu-section">
-            <h2 class="text-center">Nuestros Desayunos</h2>
-            <div class="row">
-                <!-- Omelettes -->
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="omelette1.jpg" class="card-img-top" alt="Omelette 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Omelette 1</h5>
-                            <p class="card-text">Tortilla de harina, huevos, jamón y queso.</p>
+                        <!-- Botón de pedido -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-submit btn-lg">Hacer pedido</button>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="omelette2.jpg" class="card-img-top" alt="Omelette 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Omelette 2</h5>
-                            <p class="card-text">Tortilla de harina, huevos, tomate rostizado y espinaca.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="omelette3.jpg" class="card-img-top" alt="Omelette 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Omelette 3</h5>
-                            <p class="card-text">Tortilla de harina, huevos, tocineta y maicitos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="omelette4.jpg" class="card-img-top" alt="Omelette 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Omelette 4</h5>
-                            <p class="card-text">Tortilla de harina, huevos, pechuga desmechada y salchicha.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Desayunos Tradicionales -->
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="huevos_pericos.jpg" class="card-img-top" alt="Huevos Pericos">
-                        <div class="card-body">
-                            <h5 class="card-title">Huevos Pericos</h5>
-                            <p class="card-text">Huevos revueltos con tomate y cebolla.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="huevos_rancheros.jpg" class="card-img-top" alt="Huevos Rancheros">
-                        <div class="card-body">
-                            <h5 class="card-title">Huevos Rancheros</h5>
-                            <p class="card-text">Huevos fritos con salsa de tomate y frijoles.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="huevos_fritos.jpg" class="card-img-top" alt="Huevos Fritos">
-                        <div class="card-body">
-                            <h5 class="card-title">Huevos Fritos</h5>
-                            <p class="card-text">Huevos fritos servidos con arepa y plátano.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="huevos_revueltos.jpg" class="card-img-top" alt="Huevos Revueltos">
-                        <div class="card-body">
-                            <h5 class="card-title">Huevos Revueltos</h5>
-                            <p class="card-text">Huevos revueltos con jamón y queso.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
 
-        <!-- Sección de Nuestros Acompañantes -->
-        <div class="menu-section">
-            <h2 class="text-center">Nuestros Acompañantes</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="waffles.jpg" class="card-img-top" alt="Waffles con miel">
-                        <div class="card-body">
-                            <h5 class="card-title">Waffles con miel</h5>
-                            <p class="card-text">Crujientes waffles acompañados de miel.</p>
-                        </div>
+        <!-- Menú detallado -->
+        <div class="mt-5">
+            <!-- Omelettes -->
+            <h2 class="section-title">Nuestros Omelettes</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Omelette 1</h3>
+                        <p class="item-description">Tortilla de harina, huevos, jamón y queso.</p>
+                        <p class="precio">$15.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="tostadas.jpg" class="card-img-top" alt="Tostadas con aguacate">
-                        <div class="card-body">
-                            <h5 class="card-title">Tostadas con aguacate</h5>
-                            <p class="card-text">Tostadas de pan integral con aguacate fresco.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Omelette 2</h3>
+                        <p class="item-description">Tortilla de harina, huevos, tomate rostizado y espinaca.</p>
+                        <p class="precio">$15.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="fruta.jpg" class="card-img-top" alt="Fruta">
-                        <div class="card-body">
-                            <h5 class="card-title">Fruta</h5>
-                            <p class="card-text">Selección de frutas frescas de temporada.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Omelette 3</h3>
+                        <p class="item-description">Tortilla de harina, huevos, tocineta y maicitos.</p>
+                        <p class="precio">$15.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="jugo.jpg" class="card-img-top" alt="Jugo de naranja o limón">
-                        <div class="card-body">
-                            <h5 class="card-title">Jugo de naranja o limón</h5>
-                            <p class="card-text">Jugo natural recién exprimido.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Omelette 4</h3>
+                        <p class="item-description">Tortilla de harina, huevos, pechuga desmechada y salchicha.</p>
+                        <p class="precio">$15.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="yogurt.jpg" class="card-img-top" alt="Yogurt">
-                        <div class="card-body">
-                            <h5 class="card-title">Yogurt</h5>
-                            <p class="card-text">Yogurt natural con granola y miel.</p>
-                        </div>
+            </div>
+
+            <!-- Desayunos Tradicionales -->
+            <h2 class="section-title">Desayunos Tradicionales</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Huevos Pericos</h3>
+                        <p class="item-description">Huevos revueltos con tomate y cebolla.</p>
+                        <p class="precio">$12.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="queso.jpg" class="card-img-top" alt="Queso">
-                        <div class="card-body">
-                            <h5 class="card-title">Queso</h5>
-                            <p class="card-text">Queso fresco acompañado de pan.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Huevos Rancheros</h3>
+                        <p class="item-description">Huevos fritos con salsa de tomate y frijoles.</p>
+                        <p class="precio">$12.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="pan.jpg" class="card-img-top" alt="Pan">
-                        <div class="card-body">
-                            <h5 class="card-title">Pan</h5>
-                            <p class="card-text">Pan fresco recién horneado.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Huevos Fritos</h3>
+                        <p class="item-description">Huevos fritos servidos con arepa y plátano.</p>
+                        <p class="precio">$12.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="arepa.jpg" class="card-img-top" alt="Arepa">
-                        <div class="card-body">
-                            <h5 class="card-title">Arepa</h5>
-                            <p class="card-text">Arepa de maíz con mantequilla.</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Huevos Revueltos</h3>
+                        <p class="item-description">Huevos revueltos con jamón y queso.</p>
+                        <p class="precio">$12.000</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="platano_frito.jpg" class="card-img-top" alt="Plátano frito">
-                        <div class="card-body">
-                            <h5 class="card-title">Plátano frito</h5>
-                            <p class="card-text">Plátano maduro frito al estilo tradicional.</p>
-                        </div>
+            </div>
+
+            <!-- Acompañantes -->
+            <h2 class="section-title">Nuestros Acompañantes</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Waffles con miel</h3>
+                        <p class="item-description">Crujientes waffles acompañados de miel.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Tostadas con aguacate</h3>
+                        <p class="item-description">Tostadas de pan integral con aguacate fresco.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Fruta</h3>
+                        <p class="item-description">Selección de frutas frescas de temporada.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Jugo de naranja o limón</h3>
+                        <p class="item-description">Jugo natural recién exprimido.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Yogurt</h3>
+                        <p class="item-description">Yogurt natural con granola y miel.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Queso</h3>
+                        <p class="item-description">Queso fresco acompañado de pan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Pan</h3>
+                        <p class="item-description">Pan fresco recién horneado.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Arepa</h3>
+                        <p class="item-description">Arepa de maíz con mantequilla.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Plátano frito</h3>
+                        <p class="item-description">Plátano maduro frito al estilo tradicional.</p>
                     </div>
                 </div>
             </div>

@@ -3,247 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú del Día - Restaurante Barril</title>
+    <title>Menú del Día - Restaurante El Barril Opita</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f8f4e3; /* Color de fondo claro */
-            font-family: 'Playfair Display', serif;
+            background-color: #f8f4e3; /* Fondo claro */
+            font-family: 'Roboto', sans-serif;
+            color: #333;
         }
         .titulo-restaurante {
-            color: #6f4c3e; /* Color marrón */
-        }
-        .menu-section {
-            background-color: #6f4c3e; /* Color marrón */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            text-align: center;
             margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .card {
-            background-color: #8b5a2b; /* Color marrón más claro */
+            background: linear-gradient(135deg, #8b5a2b, #6f4c3e); /* Degradado marrón */
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
-        .card img {
-            border-radius: 10px 10px 0 0;
+        .card:hover {
+            transform: translateY(-10px);
         }
         .card-title {
-            color: #f8f4e3; /* Color de texto claro */
+            font-size: 1.5rem;
+            color: #f8f4e3; /* Texto blanco */
         }
         .card-text {
-            color: #f8f4e3; /* Color de texto claro */
+            color: #f8f4e3; /* Texto blanco */
+        }
+        .btn-primary {
+            background-color: #6f4c3e; /* Marrón oscuro */
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #5a3b2f; /* Marrón más oscuro */
         }
         footer {
-            background-color: #6f4c3e; /* Color marrón */
+            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
             color: white;
+            padding: 20px 0;
         }
-        @media (max-width: 768px) {
-            .form-select {
-                width: 100%; /* Full width for select elements */
-            }
-            .container {
-                padding: 10px; /* Add some padding for mobile */
-            }
+        .menu-section {
+            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .item-card {
+            background-color: #f8f4e3; /* Fondo claro */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+        .item-title {
+            font-size: 1.2rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            font-weight: bold;
+        }
+        .item-description {
+            color: #555;
+        }
+        .form-container {
+            background: linear-gradient(135deg, #f8f4e3, #eae0d5); /* Fondo claro con degradado */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #6f4c3e; /* Marrón oscuro */
+            font-weight: bold;
+        }
+        .form-select {
+            background-color: #fff; /* Fondo blanco */
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1rem;
+            color: #333; /* Texto oscuro */
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-select:focus {
+            border-color: #6f4c3e;
+            box-shadow: 0 0 5px rgba(111, 76, 62, 0.5);
+        }
+        .btn-submit {
+            background-color: #6f4c3e;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-submit:hover {
+            background-color: #5a3b2f;
         }
     </style>
 </head>
 <body>
-    <header class="text-center py-5">
+    <!-- Título principal -->
+    <header class="text-center py-3">
         <h1 class="titulo-restaurante">Menú del Día</h1>
     </header>
 
-    <main class="container">
+    <!-- Contenido principal -->
+    <main class="container py-5">
+        <!-- Formulario de selección -->
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form id="menu-form">
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <label class="form-label">Selecciona tu plato del día ($15.000):</label>
+                <div class="form-container p-4 shadow">
+                    <h2 class="section-title">Haz tu pedido</h2>
+                    <form  id="menu-form">
+                        <!-- Seleccionar plato -->
+                        <div class="mb-3">
+                            <label for="plato" class="form-label">Selecciona tu plato del día ($15.000):</label>
                             <select class="form-select" id="plato" required>
                                 <option value="" disabled selected>Elige una opción</option>
-                                <option value="alitas">Alitas BBQ</option>
+                                <option value="alitas-bbq">Alitas BBQ</option>
                                 <option value="pollo-frito">Pollo Frito (pierna pernil)</option>
-                                <option value="bistec">Bistec a Caballo</option>
-                                <option value="higado">Hígado Encebollado</option>
+                                <option value="bistec-caballo">Bistec a Caballo</option>
+                                <option value="higado-encebollado">Hígado Encebollado</option>
                                 <option value="arroz-pollo">Arroz con Pollo</option>
                                 <option value="arroz-mixto">Arroz Mixto</option>
-                                <option value="robalo">Robalo en Salsa</option>
-                                <option value="sobrebarriga">Sobrebarriga Dorada</option>
+                                <option value="robalo-salsa">Robalo en Salsa</option>
+                                <option value="sobrebarriga-dorada">Sobrebarriga Dorada</option>
                             </select>
                         </div>
-                        <div class="col-12 mb-3">
-                            <label class="form-label">Acompañante:</label>
+
+                        <!-- Seleccionar acompañante -->
+                        <div class="mb-3">
+                            <label for="acompanante" class="form-label">Acompañante:</label>
                             <select class="form-select" id="acompanante" required>
                                 <option value="" disabled selected>Elige una opción</option>
                                 <option value="papa-criolla">Papa Criolla</option>
                                 <option value="papa-francesa">Papa a la Francesa</option>
                                 <option value="patacon">Patacón</option>
-                                <option value="yuca">Yuca Frita</option>
+                                <option value="yuca-frita">Yuca Frita</option>
                             </select>
                         </div>
-                        <div class="col-12 mb-3">
-                            <label class="form-label">Bebida:</label>
+
+                        <!-- Seleccionar bebida -->
+                        <div class="mb-3">
+                            <label for="bebida" class="form-label">Bebida:</label>
                             <select class="form-select" id="bebida" required>
                                 <option value="" disabled selected>Selecciona una opción</option>
                                 <option value="limonada">Limonada</option>
-                                <option value="naranja">Jugo de Naranja</option>
+                                <option value="jugo-naranja">Jugo de Naranja</option>
                             </select>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Hacer pedido</button>
-                </form>
-            </div>
-        </div>
-        <div class="menu-section">
-            <h2 class="text-center">Nuestros Platos</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="alitas.png" class="card-img-top" alt="Alitas BBQ">
-                        <div class="card-body">
-                            <h5 class="card-title">Alitas BBQ</h5>
-                            <p class="card-text">Deliciosas alitas marinadas y asadas a la perfección.</p>
+
+                        <!-- Botón de pedido -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-submit btn-lg">Hacer pedido</button>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="alitas.png" class="card-img-top" alt="Pollo Frito">
-                        <div class="card-body">
-                            <h5 class="card-title">Pollo Frito</h5>
-                            <p class="card-text">Crujiente y jugoso, servido con una guarnición especial.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="alitas.png" class="card-img-top" alt="Bistec a Caballo">
-                        <div class="card-body">
-                            <h5 class="card-title">Bistec a Caballo</h5>
-                            <p class="card-text">Bistec jugoso con huevo frito y salsa especial.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="higado.jpg" class="card-img-top" alt="Hígado Encebollado">
-                        <div class="card-body">
-                            <h5 class="card-title">Hígado Encebollado</h5>
-                            <p class="card-text">Hígado tierno con cebolla caramelizada.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="arroz_pollo.jpg" class="card-img-top" alt="Arroz con Pollo">
-                        <div class="card-body">
-                            <h5 class="card-title">Arroz con Pollo</h5>
-                            <p class="card-text">Arroz sazonado con pollo y verduras frescas.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="arroz_mixto.jpg" class="card-img-top" alt="Arroz Mixto">
-                        <div class="card-body">
-                            <h5 class="card-title">Arroz Mixto</h5>
-                            <p class="card-text">Arroz con mariscos y pollo, una delicia del mar.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="robalo.jpg" class="card-img-top" alt="Robalo en Salsa">
-                        <div class="card-body">
-                            <h5 class="card-title">Robalo en Salsa</h5>
-                            <p class="card-text">Pescado fresco en salsa especial, servido con guarnición.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="sobrebarriga.jpg" class="card-img-top" alt="Sobrebarriga Dorada">
-                        <div class="card-body">
-                            <h5 class="card-title">Sobrebarriga Dorada</h5>
-                            <p class="card-text">Carne de res cocinada a la perfección, acompañada de salsa.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="menu-section">
-            <h2 class="text-center">Nuestros Acompañantes</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="papa_criolla.jpg" class="card-img-top" alt="Papa Criolla">
-                        <div class="card-body">
-                            <h5 class="card-title">Papa Criolla</h5>
-                            <p class="card-text">Pequeñas papas doradas, perfectas para acompañar.</p>
-                        </div>
+
+        <!-- Menú detallado -->
+        <div class="mt-5">
+            <!-- Platos principales -->
+            <h2 class="section-title">Nuestros Platos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Alitas BBQ</h3>
+                        <p class="item-description">Deliciosas alitas marinadas y asadas a la perfección.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="papa_francesa.jpg" class="card-img-top" alt="Papa a la Francesa">
-                        <div class="card-body">
-                            <h5 class="card-title">Papa a la Francesa</h5>
-                            <p class="card-text">Crujientes papas fritas, un clásico irresistible.</p>
-                        </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Pollo Frito</h3>
+                        <p class="item-description">Crujiente y jugoso, servido con una guarnición especial.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="patacon.jpg" class="card-img-top" alt="Patacón">
-                        <div class="card-body">
-                            <h5 class="card-title">Patacón</h5>
-                            <p class="card-text">Plátano verde frito, crujiente y delicioso.</p>
-                        </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Bistec a Caballo</h3>
+                        <p class="item-description">Bistec jugoso con huevo frito y salsa especial.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="yuca.jpg" class="card-img-top" alt="Yuca Frita">
-                        <div class="card-body">
-                            <h5 class="card-title">Yuca Frita</h5>
-                            <p class="card-text">Yuca frita dorada, perfecta para acompañar cualquier plato.</p>
-                        </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Hígado Encebollado</h3>
+                        <p class="item-description">Hígado tierno con cebolla caramelizada.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Arroz con Pollo</h3>
+                        <p class="item-description">Arroz sazonado con pollo y verduras frescas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Arroz Mixto</h3>
+                        <p class="item-description">Arroz con mariscos y pollo, una delicia del mar.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Robalo en Salsa</h3>
+                        <p class="item-description">Pescado fresco en salsa especial, servido con guarnición.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Sobrebarriga Dorada</h3>
+                        <p class="item-description">Carne de res cocinada a la perfección, acompañada de salsa.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="menu-section">
-            <h2 class="text-center">Nuestras Bebidas</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="limonada.jpg" class="card-img-top" alt="Limonada">
-                        <div class="card-body">
-                            <h5 class="card-title">Limonada</h5>
-                            <p class="card-text">Refrescante limonada natural, ideal para el calor.</p>
-                        </div>
+
+            <!-- Acompañantes -->
+            <h2 class="section-title">Nuestros Acompañantes</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Papa Criolla</h3>
+                        <p class="item-description">Pequeñas papas doradas, perfectas para acompañar.</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="jugo_naranja.jpg" class="card-img-top" alt="Jugo de Naranja">
-                        <div class="card-body">
-                            <h5 class="card-title">Jugo de Naranja</h5>
-                            <p class="card-text">Jugo fresco de naranjas, lleno de sabor.</p>
-                        </div>
+                <div class="col-md-3">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Papa a la Francesa</h3>
+                        <p class="item-description">Crujientes papas fritas, un clásico irresistible.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Patacón</h3>
+                        <p class="item-description">Plátano verde frito, crujiente y delicioso.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Yuca Frita</h3>
+                        <p class="item-description">Yuca frita dorada, perfecta para acompañar cualquier plato.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <h2 class="section-title">Nuestras Bebidas</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Limonada</h3>
+                        <p class="item-description">Refrescante limonada natural, ideal para el calor.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="item-card p-4 text-center h-100">
+                        <h3 class="item-title">Jugo de Naranja</h3>
+                        <p class="item-description">Jugo fresco de naranjas, lleno de sabor.</p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="text-center py-3">
-        <p>&copy; 2023 Restaurante Barril. Todos los derechos reservados.</p>
+    <!-- Footer -->
+    <footer>
+        <div class="text-center py-3">
+            <p>&copy; 2025 Restaurante Barril. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="menu-dia.js"></script>
 </body>
 </html>
