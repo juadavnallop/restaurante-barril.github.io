@@ -1,181 +1,475 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante El Barril Opita</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: #f8f4e3; /* Fondo claro */
-            font-family: 'Roboto', sans-serif;
-            color: #333; /* Texto oscuro */
-        }
-        .titulo-restaurante {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #6f4c3e; /* Marrón oscuro */
-            text-align: center;
-            margin-top: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .card {
-            background: linear-gradient(135deg, #c49c78, #6f4c3e); /* Degradado marrón */
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card-title {
-            font-size: 1.5rem;
-            color: #f8f4e3; /* Texto blanco */
-        }
-        .card-text {
-            color: #f8f4e3; /* Texto blanco */
-        }
-        .btn-primary {
-            background-color: #6f4c3e; /* Marrón oscuro */
-            border: none;
-            border-radius: 25px;
-            padding: 10px 20px;
-            font-weight: 500;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .btn-primary:hover {
-            background-color: #5a3b2f; /* Marrón más oscuro */
-        }
-        .oculto {
-            display: none;
-        }
-        footer {
-            background: linear-gradient(135deg, #6f4c3e, #8b5a2b); /* Degradado marrón */
-            color: white;
-            padding: 20px 0;
-        }
-        .social-icons a {
-            color: #f8f4e3; /* Texto blanco para iconos */
-            transition: color 0.3s ease-in-out;
-        }
-        .social-icons a:hover {
-            color: #5a3b2f; /* Cambio de color al pasar el mouse */
-        }
-        .disabled {
-            pointer-events: none;
-            background-color: #ccc !important; /* Gris deshabilitado */
-            cursor: not-allowed;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante El Barril Opita – Menú y Pedidos por WhatsApp</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root{
+      --barril-cafe:#8A6148;--barril-cafe-suave:#B4977A;--barril-crema:#FAF3EB;--barril-oro:#B47C47;--text-principal:#3C2A1E;--text-secundario:#7c6653;--overlay-fondo:rgba(138,97,72,.60);--overlay-blur:blur(1px);--radius:18px
+    }
+    html,body{height:100%}
+    body{margin:0;background:var(--barril-crema);font-family:'Roboto',sans-serif;color:var(--text-principal);min-height:100vh;position:relative}
+    .video-background{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;overflow:hidden;pointer-events:none}
+    .video-background video{width:100vw;height:100vh;object-fit:cover;position:absolute;inset:0}
+    .video-overlay{position:absolute;inset:0;background:var(--overlay-fondo);backdrop-filter:var(--overlay-blur)}
+    main,nav,section,footer{position:relative;z-index:2}
+    nav.navbar{background:rgba(138,97,72,.88)!important;backdrop-filter:blur(4px);box-shadow:0 2px 10px rgba(60,42,30,.1)}
+    .logo-nav{height:48px;object-fit:contain}
+    .titulo-restaurante{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;margin-top:40px;margin-bottom:12px;font-weight:700;text-shadow:0 1px 10px #0004}
+    .hero-section{min-height:72vh;display:flex;align-items:center;justify-content:center;text-align:center}
+    .hero-subtitle{color:#fff;font-size:1.15rem;margin-bottom:34px;font-weight:500;text-shadow:0 1px 8px #0006}
+
+    .section-title{font-family:'Playfair Display',serif;color:#fff;font-weight:700;font-size:2.2rem;margin-bottom:8px;text-shadow:0 1px 8px #0006}
+    .section-subtitle{color:#f8f2ee;margin-bottom:26px;text-shadow:0 1px 6px #0005}
+
+    .card-menu{background:rgba(250,243,235,.95);border-radius:var(--radius);border:1px solid #d1b39f33;box-shadow:0 4px 24px #8a614822;overflow:hidden}
+    .card-menu .card-header{background:linear-gradient(90deg,#8A6148,#B4977A);color:#fff}
+
+    .item{display:flex;gap:10px;align-items:flex-start;border-bottom:1px dashed #e7d7c7;padding:12px 0}
+    .item:last-child{border-bottom:0}
+    .item input[type="checkbox"]{transform:scale(1.2);margin-top:6px}
+    .item .info{flex:1}
+    .item .title{font-weight:700;color:var(--text-principal)}
+    .muted{color:var(--text-secundario);font-size:.95rem}
+
+    .qty{width:90px}
+    .price-tag{background:#fff;padding:4px 10px;border-radius:999px;border:1px solid #b4977b66;font-weight:700;color:var(--barril-cafe)}
+
+    .floating-cart{position:sticky;bottom:10px;z-index:10}
+    .cart-card{background:#fff;border:1px solid #e9d8c9;box-shadow:0 6px 20px rgba(0,0,0,.08);border-radius:16px}
+    .btn-what{background:#25D366;border:none;color:#fff;font-weight:700}
+
+    footer{background:linear-gradient(90deg,#8A6148,#B4977A);color:#fff;padding:22px 0;box-shadow:0 -4px 16px #a3826933}
+    .clickgo-logo{height:28px}
+
+    @media(max-width:600px){.titulo-restaurante{font-size:2.2rem}.qty{width:84px}}
+  </style>
 </head>
 <body>
-    <!-- Logo horizontal -->
-    <div class="logo-container">
-        <img src="logo1.png" alt="Logo Restaurante Barril" class="img-fluid w-100">
+  <!-- Fondo de video (opcional) -->
+  <div class="video-background" aria-hidden>
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio"><img src="logo1.png" alt="Logo El Barril Opita" class="logo-nav" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#mantienen">Platos que se mantienen</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nuevos">Planchas y picadas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bebidas">Bebidas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#paquetes">Paquetes y porciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carrito">Enviar pedido</a></li>
+        </ul>
+      </div>
     </div>
-    <!-- Título principal debajo del logo -->
-    <header class="text-center py-3">
-        <h1 class="titulo-restaurante">Restaurante El Barril Opita</h1>
-    </header>
-    <!-- Contenido principal -->
-    <main class="container py-5">
-        <div class="row g-4">
-            <!-- Menú del día -->
-            <div class="col-md-4">
-                <div class="card h-100 text-center" id="menu-del-dia">
-                    <div class="card-body">
-                        <h2 class="card-title">Menú del Día</h2>
-                        <p class="card-text">Disfruta de nuestros deliciosos desayunos y almuerzos.</p>
-                        <a href="menu-dia.html" class="btn btn-primary" id="btn-menu-dia">Ver menú</a>
-                    </div>
-                </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero-section d-flex align-items-center">
+    <div class="container">
+      <h1 class="titulo-restaurante">El Barril Opita</h1>
+      <p class="hero-subtitle">Arma tu pedido, elige tus acompañantes y envíalo por WhatsApp en un clic.</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#mantienen" class="btn btn-light fw-semibold"><i class="fa-solid fa-utensils me-2"></i>Ver menú</a>
+        <a href="#carrito" class="btn" style="background:var(--barril-oro);color:#fff;font-weight:700"><i class="fa-brands fa-whatsapp me-2"></i>Enviar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="pb-5">
+    <div class="container">
+
+      <!-- 1. PLATOS QUE SE MANTIENEN -->
+      <section id="mantienen" class="mb-4">
+        <h2 class="section-title">Platos que se mantienen</h2>
+        <p class="section-subtitle">Sigue disfrutando tus favoritos.</p>
+
+        <div class="card card-menu mb-3">
+          <div class="card-header"><strong>Antojito opita</strong></div>
+          <div class="card-body">
+            <!-- Variante: Con papa (8.000) -->
+            <div class="item menu-item" data-name="Antojito opita" data-category="Antojitos" data-price="8000" data-variant="Con papa">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info">
+                <div class="title">Con papa <span class="price-tag ms-1">$8.000</span></div>
+                <div class="muted">Porción pequeña ideal para antojarse.</div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <label class="muted">Cant.</label>
+                <input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" />
+              </div>
             </div>
-            <!-- Plato tradicional -->
-            <div class="col-md-4">
-                <div class="card h-100 text-center">
-                    <div class="card-body">
-                        <h2 class="card-title">Plato Tradicional</h2>
-                        <p class="card-text">Saborea los sabores auténticos de nuestra cocina local.</p>
-                        <a href="tradicional.html" class="btn btn-primary">Ver platos</a>
-                    </div>
-                </div>
+            <!-- Variante: Con arepa boyacense (10.000) -->
+            <div class="item menu-item" data-name="Antojito opita" data-category="Antojitos" data-price="10000" data-variant="Con arepa boyacense">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info">
+                <div class="title">Con arepa boyacense <span class="price-tag ms-1">$10.000</span></div>
+                <div class="muted">Antojo tradicional con sabor boyacense.</div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <label class="muted">Cant.</label>
+                <input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" />
+              </div>
             </div>
-            <!-- Comida Rápida -->
-            <div class="col-md-4">
-                <div class="card h-100 text-center">
-                    <div class="card-body">
-                        <h2 class="card-title">Comida Rápida</h2>
-                        <p class="card-text">Disfruta de nuestras deliciosas opciones rápidas.</p>
-                        <a href="comida-rapida.html" class="btn btn-primary">Ver opciones</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Desayunos Tradicionales Especiales -->
-            <div class="col-md-4">
-                <div class="card h-100 text-center">
-                    <div class="card-body">
-                        <h2 class="card-title">Desayunos Tradicionales y Especiales</h2>
-                        <p class="card-text">Descubre nuestras opciones de desayunos únicos y deliciosos.</p>
-                        <a href="desayunos-especiales.html" class="btn btn-primary">Ver desayunos</a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <div class="text-center py-3">
-            <p>&copy; 2025 Restaurante Barril. Todos los derechos reservados.</p>
-            <div class="social-icons">
-                <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+
+        <div class="card card-menu mb-4">
+          <div class="card-header"><strong>Carne al barril / opita</strong> <span class="ms-2 badge bg-warning text-dark">$25.000 por porción</span></div>
+          <div class="card-body">
+            <p class="muted mb-2">Elige tus carnes (puedes combinar) y un tipo de acompañamiento</p>
+
+            <!-- Porción de carne al barril (combinable) -->
+            <div class="item menu-item" data-name="Carne al barril" data-category="Carnes al barril" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info w-100">
+                <div class="title">Porción (combinable) <span class="price-tag ms-1">$25.000</span></div>
+
+                <!-- Tipos de carne: checkboxes múltiples -->
+                <div class="row g-2 mt-2">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Tipos de carne (elige una o varias):</label>
+                    <div class="d-flex flex-wrap gap-3">
+                      <div class="form-check">
+                        <input class="form-check-input opt-meat" type="checkbox" value="Res" id="meat-res">
+                        <label class="form-check-label" for="meat-res">Res</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input opt-meat" type="checkbox" value="Cerdo" id="meat-cerdo">
+                        <label class="form-check-label" for="meat-cerdo">Cerdo</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input opt-meat" type="checkbox" value="Costilla de res" id="meat-costilla-res">
+                        <label class="form-check-label" for="meat-costilla-res">Costilla de res</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input opt-meat" type="checkbox" value="Costilla de cerdo" id="meat-costilla-cerdo">
+                        <label class="form-check-label" for="meat-costilla-cerdo">Costilla de cerdo</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label">Acompañamiento (elige 1):</label>
+                    <select class="form-select form-select-sm opt-side">
+                      <option value="Papa y arepa boyacense con ensalada">1. Papa y arepa boyacense con ensalada</option>
+                      <option value="Papa a la francesa y maduro">2. Papa a la francesa y maduro</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <label class="muted">Cant.</label>
+                <input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" />
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
-    <!-- Bootstrap JS (opcional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script>
-        // Función para obtener la hora actual en la zona horaria de Colombia
-        function obtenerHoraColombia() {
-            const ahora = new Date();
-            const opciones = { timeZone: 'America/Bogota', hour: 'numeric', hour12: false };
-            const horaColombia = new Intl.DateTimeFormat('es-CO', opciones).format(ahora);
-            return parseInt(horaColombia); // Convertir la hora a un número entero
+      </section>
+
+      <!-- 2. PLATOS NUEVOS A INCLUIR -->
+      <section id="nuevos" class="mb-4">
+        <h2 class="section-title">Platos nuevos a incluir</h2>
+        <p class="section-subtitle">A la plancha – Todas a $25.000</p>
+
+        <div class="card card-menu mb-3">
+          <div class="card-header"><strong>Opciones a la plancha</strong> <span class="ms-2 badge bg-warning text-dark">$25.000</span></div>
+          <div class="card-body">
+            <!-- Pechuga -->
+            <div class="item menu-item" data-name="Pechuga a la plancha" data-category="Planchas" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Pechuga</div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+            <!-- Lomo de cerdo -->
+            <div class="item menu-item" data-name="Lomo de cerdo a la plancha" data-category="Planchas" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Lomo de cerdo</div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+            <!-- Carne de res -->
+            <div class="item menu-item" data-name="Carne de res a la plancha" data-category="Planchas" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Carne de res</div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+            <!-- Ubre -->
+            <div class="item menu-item" data-name="Ubre a la plancha" data-category="Planchas" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Ubre</div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-menu mb-4">
+          <div class="card-header"><strong>Picadas mixtas</strong> <span class="ms-2 badge bg-warning text-dark">$45.000 – $65.000</span></div>
+          <div class="card-body">
+            <p class="muted">Combinadas de carne de res, cerdo, morcilla, chorizo y ubre. Elige el tamaño:</p>
+            <!-- Picada Pequeña 45k -->
+            <div class="item menu-item" data-name="Picada mixta" data-category="Picadas" data-price="45000" data-variant="Pequeña">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Pequeña <span class="price-tag ms-1">$45.000</span></div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+            <!-- Picada Mediana 55k -->
+            <div class="item menu-item" data-name="Picada mixta" data-category="Picadas" data-price="55000" data-variant="Mediana">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Mediana <span class="price-tag ms-1">$55.000</span></div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+            <!-- Picada Grande 65k -->
+            <div class="item menu-item" data-name="Picada mixta" data-category="Picadas" data-price="65000" data-variant="Grande">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Grande <span class="price-tag ms-1">$65.000</span></div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. BEBIDAS Y ADICIONALES -->
+      <section id="bebidas" class="mb-4">
+        <h2 class="section-title">Bebidas y adicionales</h2>
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-6">
+            <div class="card card-menu h-100">
+              <div class="card-header"><strong>Cervezas</strong> <span class="ms-2 badge bg-warning text-dark">$4.000</span></div>
+              <div class="card-body">
+                <!-- Águila Negra -->
+                <div class="item menu-item" data-name="Cerveza Águila Negra" data-category="Cervezas" data-price="4000">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Águila Negra <span class="price-tag ms-1">$4.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <!-- Águila Light -->
+                <div class="item menu-item" data-name="Cerveza Águila Light" data-category="Cervezas" data-price="4000">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Águila Light <span class="price-tag ms-1">$4.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card card-menu h-100">
+              <div class="card-header"><strong>Gaseosas</strong> <span class="ms-2 badge bg-warning text-dark">Personales $4.000 • 1.5L $9.000 • 3L $12.000</span></div>
+              <div class="card-body">
+                <!-- Coca-Cola -->
+                <div class="item menu-item" data-name="Gaseosa Coca-Cola" data-category="Gaseosas" data-price="4000" data-variant="Personal">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Coca-Cola Personal <span class="price-tag ms-1">$4.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Gaseosa Coca-Cola" data-category="Gaseosas" data-price="9000" data-variant="1.5 L">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Coca-Cola 1.5 L <span class="price-tag ms-1">$9.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Gaseosa Coca-Cola" data-category="Gaseosas" data-price="12000" data-variant="3 L">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Coca-Cola 3 L <span class="price-tag ms-1">$12.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <!-- Colombiana -->
+                <div class="item menu-item" data-name="Gaseosa Colombiana" data-category="Gaseosas" data-price="4000" data-variant="Personal">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Colombiana Personal <span class="price-tag ms-1">$4.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Gaseosa Colombiana" data-category="Gaseosas" data-price="9000" data-variant="1.5 L">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Colombiana 1.5 L <span class="price-tag ms-1">$9.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Gaseosa Colombiana" data-category="Gaseosas" data-price="12000" data-variant="3 L">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Colombiana 3 L <span class="price-tag ms-1">$12.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-1">
+          <div class="col-12 col-lg-6">
+            <div class="card card-menu h-100">
+              <div class="card-header"><strong>Agua</strong> <span class="ms-2 badge bg-warning text-dark">$4.000</span></div>
+              <div class="card-body">
+                <div class="item menu-item" data-name="Agua" data-category="Bebidas" data-price="4000">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Botella de agua <span class="price-tag ms-1">$4.000</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="card card-menu h-100">
+              <div class="card-header"><strong>Adicionales</strong> <span class="ms-2 badge bg-secondary">precio en sitio</span></div>
+              <div class="card-body">
+                <div class="item menu-item" data-name="Chorizo (porción)" data-category="Adicionales" data-price="">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Chorizo (porción) <span class="muted">— precio en sitio</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Morcilla (porción)" data-category="Adicionales" data-price="">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Morcilla (porción) <span class="muted">— precio en sitio</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Arepa (unidad)" data-category="Adicionales" data-price="">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Arepa (unidad) <span class="muted">— precio en sitio</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Papa salada (porción)" data-category="Adicionales" data-price="">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Papa salada (porción) <span class="muted">— precio en sitio</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+                <div class="item menu-item" data-name="Papa a la francesa (porción)" data-category="Adicionales" data-price="">
+                  <input class="form-check-input item-check" type="checkbox" />
+                  <div class="info"><div class="title">Papa a la francesa (porción) <span class="muted">— precio en sitio</span></div></div>
+                  <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PAQUETES Y PORCIONES -->
+      <section id="paquetes" class="mb-4">
+        <h2 class="section-title">Paquetes y porciones</h2>
+        <div class="card card-menu mb-4">
+          <div class="card-header"><strong>Paquetes</strong></div>
+          <div class="card-body">
+            <div class="item menu-item" data-name="Paquete 10 arepas boyacenses" data-category="Paquetes" data-price="25000">
+              <input class="form-check-input item-check" type="checkbox" />
+              <div class="info"><div class="title">Paquete de 10 arepas boyacenses <span class="price-tag ms-1">$25.000</span></div></div>
+              <div class="d-flex align-items-center gap-2"><label class="muted">Cant.</label><input type="number" class="form-control form-control-sm qty item-qty" min="1" value="1" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARRITO / ENVIAR -->
+      <section id="carrito" class="floating-cart">
+        <div class="cart-card p-3">
+          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+            <div>
+              <div class="fw-bold">Resumen del pedido</div>
+              <div class="small text-muted">Se incluirán ítems seleccionados y observaciones.</div>
+            </div>
+            <div class="d-flex flex-column flex-sm-row align-items-stretch gap-2">
+              <input type="text" id="observaciones" class="form-control" placeholder="Observaciones: sin cebolla, bien asado, dirección, etc." />
+              <a id="btnWhats" class="btn btn-what px-3"><i class="fa-brands fa-whatsapp me-2"></i>Enviar por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2 small text-muted">* El total se confirma en el punto. Algunos adicionales no tienen precio fijo en web.</div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="mt-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <div class="d-flex gap-3 mb-2">
+            <a href="https://www.facebook.com/people/El-Barril-Opita/61577145993413/?rdid=QEOyCtsOSdJq3KnU&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F173WCvS371%2F" target="_blank" class="text-white" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/elbarrilopita?igsh=MTNsb25idWg4ZzI4Zg==" target="_blank" class="text-white" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-md-5 text-end">
+          <span class="ms-2">Desarrollado por <strong>Click&Go</strong></span>
+        </div>
+      </div>
+      <div class="row mt-2"><div class="col text-center">
+        <p class="mb-0">&copy; 2025 Restaurante El Barril Opita. Todos los derechos reservados.</p>
+      </div></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ⚙️ Número de WhatsApp actualizado
+    const WHATSAPP_NUMBER = '573213351796';
+
+    function getSelectedMeats(container){
+      const meats = [...container.querySelectorAll('.opt-meat:checked')].map(i=>i.value);
+      return meats.length ? meats.join(', ') : '';
+    }
+
+    function getSelectedSide(container){
+      const sel = container.querySelector('.opt-side');
+      return sel ? sel.value : '';
+    }
+
+    function buildOrder(){
+      const items = [...document.querySelectorAll('.menu-item')];
+      let lines = [];
+
+      items.forEach(el => {
+        const checked = el.querySelector('.item-check')?.checked;
+        if(!checked) return;
+
+        const qty = parseInt(el.querySelector('.item-qty')?.value || '1', 10);
+        const name = el.dataset.name || 'Producto';
+        const category = el.dataset.category || '';
+        const price = el.dataset.price;
+        const variant = el.dataset.variant || '';
+        let extras = [];
+
+        if(name.includes('Carne al barril')){
+          const meats = getSelectedMeats(el);
+          const side = getSelectedSide(el);
+          if(meats) extras.push('Carnes: ' + meats);
+          if(side) extras.push('Acompañamiento: ' + side);
         }
 
-        // Función para verificar si está dentro del horario permitido
-        function esHoraPermitida() {
-            const horaActual = obtenerHoraColombia();
-            const HORA_APERTURA = 10;  // 10:00 AM
-            const HORA_CIERRE = 24;    // 4:00 PM
-            return horaActual >= HORA_APERTURA && horaActual < HORA_CIERRE;
-        }
+        let label = `${qty} x ${name}`;
+        if(variant) label += ` (${variant})`;
+        if(extras.length) label += ` — ${extras.join(' | ')}`;
+        if(price) label += ` — $${Number(price).toLocaleString('es-CO')}`;
+        if(category) label += ` \n  · Categoría: ${category}`;
 
-        // Ejecutar la lógica cuando se cargue la página
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuDelDia = document.getElementById("menu-del-dia");
-            const btnMenuDia = document.getElementById("btn-menu-dia");
+        lines.push(label);
+      });
 
-            if (esHoraPermitida()) {
-                // Si está dentro del horario permitido, mostramos el menú
-                menuDelDia.classList.remove("oculto");
-            } else {
-                // Si no está dentro del horario permitido, ocultamos el menú
-                menuDelDia.classList.add("oculto");
-                btnMenuDia.textContent = "Fuera de horario"; // Cambiar texto del botón
-                btnMenuDia.setAttribute("href", "#"); // Desactivar el enlace
-                btnMenuDia.classList.add("disabled"); // Agregar estilo de deshabilitado
-            }
-        });
-    </script>
+      const obs = document.getElementById('observaciones')?.value.trim();
+      if(obs) lines.push(`\nObservaciones: ${obs}`);
+
+      const header = 'Hola, quiero hacer el siguiente pedido de *El Barril Opita*:\n';
+      const footer = '\nGracias!';
+      const body = lines.length ? lines.map(l => '• ' + l).join('\n') : '[Sin ítems seleccionados]';
+      return header + body + footer;
+    }
+
+    document.getElementById('btnWhats')?.addEventListener('click', () => {
+      const message = buildOrder();
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
